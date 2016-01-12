@@ -1,5 +1,6 @@
 require 'sinatra'
 
 get '/playa/resource' do
-  "{test: test}"
+  content_type :json
+  { :key1 => 'value1', :key2 => 'value2' }.to_json
 end
