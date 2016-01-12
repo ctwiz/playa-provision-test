@@ -1,5 +1,5 @@
 require 'sinatra'
 
-get '/' do
-  "Hello World!"
+get '/playa/resource' do
+  "{test: test}"
 end
