@@ -9,5 +9,5 @@ end
 get '/playa/resource' do
   content_type :json
   result = { id: 'id-1234-8888', config: {PLAYA_RESOURCE_URL: 'http://random_user:random_password@playa-provision-test.herokuapp.com/id-1234-8888' } }
-  result.to_jason
+  result.to_json
 end
