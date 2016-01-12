@@ -3,7 +3,7 @@ require 'json'
 
 
 use Rack::Auth::Basic do |username, password|
-  username == 'admin' and password == 'admin'
+  username == 'playa' and password == 'poop1234'
 end
 
 get '/playa/resource' do
