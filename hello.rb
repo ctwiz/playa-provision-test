@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'json'
 
 get '/playa/resource' do
   content_type :json
