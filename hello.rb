@@ -1,6 +1,17 @@
 require 'sinatra'
 require 'json'
 
+class SimpleAuth < Rack::Auth::Basic
+  def call(env)
+    request = Rack::Request.new(env)
+    case request.path
+    when '/playa/resource'
+      super
+    else
+      @app.call(env)
+    end
+  end
+end
 
 
 use SimpleAuth do |username, password|
@@ -19,16 +30,3 @@ get '/playa/sso' do
 end
 
 
-class SimpleAuth < Rack::Auth::Basic
-
-  def call(env)
-    request = Rack::Request.new(env)
-    case request.path
-    when '/playa/resource'
-      super
-    else
-      @app.call(env)
-    end
-  end
-
-end
