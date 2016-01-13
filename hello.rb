@@ -18,7 +18,7 @@ use SimpleAuth do |username, password|
   username == 'playa' and password == 'test1234'
 end
 
-get '/playa/resource' do
+post '/playa/resource' do
   content_type :json
   id = 'id-1234-8888'
   result = { id: id, config: {PLAYA_RESOURCE_URL: "http://random_user:random_password@playa-provision-test.herokuapp.com/#{id}" } }
