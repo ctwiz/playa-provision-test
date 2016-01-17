@@ -1,6 +1,11 @@
 require 'sinatra'
 require 'json'
 
+# Serving at 
+# http://playa-provision-test.herokuapp.com/playa/resource
+# and
+# http://playa-provision-test.herokuapp.com/playa/sso
+
 class SimpleAuth < Rack::Auth::Basic
   def call(env)
     request = Rack::Request.new(env)
@@ -13,7 +18,6 @@ class SimpleAuth < Rack::Auth::Basic
   end
 end
 
-
 use SimpleAuth do |username, password|
   username == 'playa' and password == 'test1234'
 end
@@ -25,8 +29,9 @@ post '/playa/resource' do
   result.to_json
 end
 
-get '/playa/sso' do
+post '/playa/sso' do
   params = request.env['rack.request.query_hash']
+  raise params.inspect
 end
 
 
