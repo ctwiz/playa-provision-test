@@ -30,8 +30,8 @@ post '/playa/resource' do
 end
 
 post '/playa/sso' do
-  params = request.env['rack.request.query_hash']
-  raise params.inspect
+  #params = request.env['rack.request.query_hash']
+  raise request.inspect
 end
 
 
