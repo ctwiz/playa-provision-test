@@ -37,11 +37,8 @@ post '/playa/sso' do
   salt = "d84973a6ed95a122495351e51bd2133d"
 
   expected_token = params[:provision_id].to_s + ":" + salt + ":" + params[:timestamp].to_s
-  # "id-1234-8888:d84973a6ed95a122495351e51bd2133d:1453082734"
   expected_token = Digest::SHA1.hexdigest expected_token
 
-  "Salt: " + salt + "<br/> Id: " + params[:provision_id] + "<br/> Timestamp: " + params[:timestamp] + "<br/> Expected token: " + expected_token + "<br/> Received token: " + params[:token]
+  "Expected token: " + expected_token + "<br/> Received token: " + params[:token]
 
 end
-
-
