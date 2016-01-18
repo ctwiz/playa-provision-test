@@ -1,2 +1,2 @@
-require './hello'
+require './playa'
 run Sinatra::Application

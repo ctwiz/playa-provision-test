@@ -34,11 +34,11 @@ post '/playa/sso' do
   #params = request.env['rack.request.query_hash']
   #@params={"authenticity_token"=>"LIg0b4JemBFvId4u55avPLq5xv8hrhImV3dWn6w2q9Ki79zb144mJnnDjUmskRo+EEyG8mL4ahhgFrF+ZkGeqA==", "provision_id"=>"83a0241b-ffad-49c2-8b78-12931fffccb4", "token"=>"c4dc14261719d225d4b1319d5db12aba3f100542", "timestamp"=>"1453009586", "email"=>"ournive+test4@gmail.com"}
   # salt taken from tmp app
+
   salt = "d84973a6ed95a122495351e51bd2133d"
 
   expected_token = params[:provision_id].to_s + ":" + salt + ":" + params[:timestamp].to_s
-  expected_token = Digest::SHA1.hexdigest expected_token
+  @expected_token = Digest::SHA1.hexdigest expected_token
 
-  "Expected token: " + expected_token + "<br/> Received token: " + params[:token]
-
+  erb :index
 end
